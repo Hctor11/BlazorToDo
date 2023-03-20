@@ -5,7 +5,10 @@
 <ul>
     @foreach (var todo in todos)
     {
-        <li>@todo.Title</li>
+        <li>
+            <input @bind="todo.Title" />
+            <input type="checkbox" @bind="todo.isDone"/>
+        </li>
     }
 </ul>
 
@@ -18,7 +21,11 @@
 
     private void AddTodo()
     {
-    
+        if (!string.IsNullOrWhiteSpace(newTodo)) 
+        {
+            todos.Add(new TodoItem { Title = newTodo });
+            newTodo = string.Empty;
+        }
 
     }
 }
