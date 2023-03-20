@@ -2,6 +2,23 @@
 
 <h3>to do</h3>
 
-@code {
+<ul>
+    @foreach (var todo in todos)
+    {
+        <li>@todo.Title</li>
+    }
+</ul>
 
+<input placeholder="algo para hacer" @bind="newTodo" />
+<button @onclick="AddTodo">Add todo</button>
+
+@code {
+    private List<TodoItem> todos = new();
+    private string? newTodo;
+
+    private void AddTodo()
+    {
+    
+
+    }
 }
